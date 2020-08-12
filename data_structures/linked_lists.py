@@ -1,8 +1,4 @@
-class Node:
-    '''Class to create a new Node'''
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+from node import Node
 
 class LinkedList:
     '''Class to create a new empty linked list'''
@@ -11,6 +7,7 @@ class LinkedList:
         self._length = 0
 
     def _go_to_node(self, index):
+        '''Method to go to the node with the given index'''
         current_node = self.head
         for i in range(index):
             current_node = current_node.next
@@ -96,6 +93,7 @@ class LinkedList:
             current_node = self._go_to_node(index-1)
             new_node.next = current_node.next
             current_node.next = new_node
+        self._length += 1
 
     def remove(self, item):
         '''Method to remove an item of the list'''
@@ -116,3 +114,4 @@ class LinkedList:
                 current_node.next = None
             else:
                 raise ValueError("{} is not in list".format(item))
+        self._length -= 1
