@@ -19,10 +19,10 @@ class MaxHeap(Heap):
     def build_max_heap(self, heap: list):
         self.heap = heap
         self.heap_size = len(heap)
-        for i in range(self.heap_size // 2, 0, -1):
+        for i in range(self.heap_size // 2, -1, -1):
             self._max_heapify(i)
 
 my_heap = MaxHeap()
-my_heap.build_max_heap([1, 9, 2, 16, 3, 11, 4, 12, 5, 5, 6, 10, 7])
+my_heap.build_max_heap([4, 1, 3, 2, 16, 9, 10, 14, 8, 7])
 
 print(my_heap.heap)
