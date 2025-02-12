@@ -1,7 +1,7 @@
-from heap import Heap
+from data_structures.heap import Heap
 
 class MaxHeap(Heap):
-    def _max_heapify(self, i: int):
+    def max_heapify(self, i: int):
         largest = i
         left = self._left(i)
         rigth = self._right(i)
@@ -14,10 +14,10 @@ class MaxHeap(Heap):
 
         if largest != i:
             self.heap[i], self.heap[largest] = self.heap[largest], self.heap[i]
-            self._max_heapify(largest)
+            self.max_heapify(largest)
 
     def build_max_heap(self, heap: list):
         self.heap = heap
         self.heap_size = len(heap)
         for i in range(self.heap_size // 2, -1, -1):
-            self._max_heapify(i)
+            self.max_heapify(i)
