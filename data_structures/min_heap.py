@@ -1,7 +1,7 @@
-from heap import Heap
+from data_structures.heap import Heap
 
 class MinHeap(Heap):
-    def _min_heapify(self, i: int):
+    def min_heapify(self, i: int):
         smallest = i
         left = self._left(i)
         rigth = self._right(i)
@@ -14,10 +14,10 @@ class MinHeap(Heap):
 
         if smallest != i:
             self.heap[i], self.heap[smallest] = self.heap[smallest], self.heap[i]
-            self._min_heapify(smallest)
+            self.min_heapify(smallest)
 
     def build_min_heap(self, heap: list):
         self.heap = heap
         self.heap_size = len(heap)
         for i in range(self.heap_size // 2, -1, -1):
-            self._min_heapify(i)
+            self.min_heapify(i)

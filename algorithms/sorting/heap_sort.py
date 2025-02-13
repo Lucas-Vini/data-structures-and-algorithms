@@ -1,15 +1,21 @@
 from data_structures.max_heap import MaxHeap
+from data_structures.min_heap import MinHeap
 
-def heap_sort(elements: list):
-    heap = MaxHeap()
-    heap.build_max_heap(elements)
-    for i in range(len(elements) - 1, 2, -1):
-        heap.heap[1], heap.heap[i] = heap.heap[i], heap.heap[1]
+def heap_sort(elements: list, reverse=False):
+    if reverse:
+        heap = MinHeap()
+        heap.build_min_heap(elements)
+    else:
+        heap = MaxHeap()
+        heap.build_max_heap(elements)
+
+    for i in range(len(elements) - 1, 0, -1):
+        heap.heap[0], heap.heap[i] = heap.heap[i], heap.heap[0]
         heap.heap_size -= 1
-        heap.max_heapify(1)
+
+        if reverse:
+            heap.min_heapify(0)
+        else:
+            heap.max_heapify(0)
     return heap.heap
 
-
-a = [2, 6, 1, 8, 3, 1, 6, 3, 9]
-
-print(heap_sort(a))
