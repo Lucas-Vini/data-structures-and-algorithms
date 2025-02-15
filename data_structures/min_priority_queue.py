@@ -25,5 +25,5 @@ class MinPriorityQueue(MinHeap):
 
     def min_heap_insert(self, key):
         self.heap_size += 1
-        self.heap[self.heap_size - 1] = key
+        self.heap.append(key)
         self.heap_decrease_key(self.heap_size - 1, key)

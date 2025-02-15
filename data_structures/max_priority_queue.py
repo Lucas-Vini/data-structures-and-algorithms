@@ -25,5 +25,5 @@ class MaxPriorityQueue(MaxHeap):
 
     def max_heap_insert(self, key):
         self.heap_size += 1
-        self.heap[self.heap_size - 1] = key
+        self.heap.append(key)
         self.heap_increase_key(self.heap_size - 1, key)
