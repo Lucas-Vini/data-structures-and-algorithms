@@ -3,9 +3,9 @@ def quick_sort(elements: list, start=0, end=None) -> list:
         end = len(elements) - 1
 
     if start < end:
-        middle = partition(elements, start, end)
-        quick_sort(elements, start, middle - 1)
-        quick_sort(elements, middle + 1, end)
+        pivot = partition(elements, start, end)
+        quick_sort(elements, start, pivot - 1)
+        quick_sort(elements, pivot + 1, end)
 
 def partition(elements, start, end):
     pivot = elements[end]
