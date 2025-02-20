@@ -12,7 +12,3 @@ def counting_sort(elements: list):
             counter_values[i] -= 1
             elements_counter += 1
     return elements
-
-a = [5, 9, 1, 8, 2, 7, 3, 6, 4, 10, 10, 191, 10, 0 , 0, 0, 0, 0, 0, 0, 0, 0]
-print(counting_sort(a))
-    
