@@ -1,4 +1,4 @@
-from data_structures.max_heap import MaxHeap
+from data_structures.heap.max_heap import MaxHeap
 
 class MaxPriorityQueue(MaxHeap):
     def heap_maximum(self):
