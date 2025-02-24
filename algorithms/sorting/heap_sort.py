@@ -1,5 +1,5 @@
-from data_structures.max_heap import MaxHeap
-from data_structures.min_heap import MinHeap
+from data_structures.heap.max_heap import MaxHeap
+from data_structures.heap.min_heap import MinHeap
 
 def heap_sort(elements: list, reverse=False):
     if reverse:

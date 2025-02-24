@@ -1,4 +1,4 @@
-from data_structures.min_heap import MinHeap
+from data_structures.heap.min_heap import MinHeap
 
 class MinPriorityQueue(MinHeap):
     def heap_minimum(self):
