@@ -14,3 +14,6 @@ class LinkedList:
             self.first = Node(value)
             self.last = self.first
         self.length += 1
+
+    def __len__(self):
+        return self.length
