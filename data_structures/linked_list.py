@@ -27,3 +27,13 @@ class LinkedList:
         if not pointer:
             raise IndexError("list index out of range")
         return pointer.value
+
+    def __setitem__(self, index, value):
+        pointer = self.first
+        for i in range(index):
+            if not pointer.next:
+                raise IndexError("list index out of range")
+            pointer = pointer.next
+        if not pointer:
+            raise IndexError("list index out of range")
+        pointer.value = value
