@@ -37,3 +37,24 @@ class LinkedList:
         if not pointer:
             raise IndexError("list index out of range")
         pointer.value = value
+
+    def index(self, value):
+        pointer = self.first
+        counter = 0
+        while pointer:
+            if pointer.value == value:
+                return counter
+            pointer = pointer.next
+            counter += 1
+        raise ValueError(f"{value} is not in list")
+    
+
+ele = LinkedList()
+ele.append(3)
+ele.append(9)
+ele.append(1)
+ele.append(7)
+ele.append(2)
+print(ele.index(7))
+print(ele.index(9))
+ele.index(5)
