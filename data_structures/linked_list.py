@@ -40,21 +40,25 @@ class LinkedList:
 
     def index(self, value):
         pointer = self.first
-        counter = 0
+        index = 0
         while pointer:
             if pointer.value == value:
-                return counter
+                return index
             pointer = pointer.next
-            counter += 1
+            index += 1
         raise ValueError(f"{value} is not in list")
     
+    def insert(self, index, value):
+        if index == 0:
+           self.first = Node(value, self.first)
+        elif index == self._length - 1:
+            self.append(value)
+        else:
+            pointer = self.first
+            for i in range(index - 1):
+                if not pointer.next:
+                    raise IndexError("list index out of range")
+                pointer = pointer.next
+            pointer.next = Node(value, pointer.next)
 
-ele = LinkedList()
-ele.append(3)
-ele.append(9)
-ele.append(1)
-ele.append(7)
-ele.append(2)
-print(ele.index(7))
-print(ele.index(9))
-ele.index(5)
+
