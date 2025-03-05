@@ -19,13 +19,13 @@ class LinkedList:
         return self._length
     
     def __getitem__(self, index: int):
-        pointer = self.get_node(index)
+        pointer = self._get_node(index)
         if not pointer:
             raise IndexError("list index out of range")
         return pointer.value
 
     def __setitem__(self, index: int, value):
-        pointer = self.get_node(index)
+        pointer = self._get_node(index)
         if not pointer:
             raise IndexError("list index out of range")
         pointer.value = value
@@ -46,15 +46,13 @@ class LinkedList:
         elif index == self._length - 1:
             self.append(value)
         else:
-            pointer = self.get_node(index - 1)
+            pointer = self._get_node(index - 1)
             pointer.next = Node(value, pointer.next)
 
-    def get_node(self, index: int):
+    def _get_node(self, index: int):
         pointer = self.first
         for i in range(index):
             if not pointer.next:
                 raise IndexError("list index out of range")
             pointer = pointer.next
         return pointer
-
-
