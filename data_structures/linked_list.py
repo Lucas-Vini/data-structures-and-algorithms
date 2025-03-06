@@ -48,6 +48,7 @@ class LinkedList:
         else:
             pointer = self._get_node(index - 1)
             pointer.next = Node(value, pointer.next)
+        self._length += 1
 
     def _get_node(self, index: int):
         pointer = self.first
@@ -56,3 +57,8 @@ class LinkedList:
                 raise IndexError("list index out of range")
             pointer = pointer.next
         return pointer
+
+
+dk = LinkedList()
+dk.insert(0, 5)
+print(len(dk))
