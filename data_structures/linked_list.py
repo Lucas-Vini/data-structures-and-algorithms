@@ -50,6 +50,14 @@ class LinkedList:
             pointer.next = Node(value, pointer.next)
         self._length += 1
 
+    def remove(self, value):
+        if not self.first:
+            raise ValueError(f"{value} is not in list")
+        if self.first.value == value:
+            self.first = self.first.next
+            
+
+
     def _get_node(self, index: int):
         pointer = self.first
         for i in range(index):
@@ -57,8 +65,3 @@ class LinkedList:
                 raise IndexError("list index out of range")
             pointer = pointer.next
         return pointer
-
-
-dk = LinkedList()
-dk.insert(0, 5)
-print(len(dk))
