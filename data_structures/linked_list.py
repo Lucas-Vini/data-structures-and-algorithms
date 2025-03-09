@@ -85,25 +85,3 @@ class LinkedList:
 
         string_list += "]"
         return string_list
-
-
-
-ele = LinkedList()
-print(ele, len(ele))
-ele.append(1)
-print(ele, len(ele))
-ele.append(11)
-print(ele, len(ele))
-print(ele[1], ele[0])
-ele[0] = 22
-print(ele, len(ele))
-print(ele[1], ele[0])
-print(ele)
-print(ele.index(11))
-print(ele.index(22))
-ele.insert(0, 33)
-print(ele, len(ele))
-ele.insert(2, 9)
-print(ele, len(ele))
-ele.insert(4, 4)
-print(ele, len(ele))
