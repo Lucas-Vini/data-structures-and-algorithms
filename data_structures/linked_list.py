@@ -42,13 +42,18 @@ class LinkedList:
     
     def insert(self, index: int, value):
         if index == 0:
-           self.first = Node(value, self.first)
+            self.first = Node(value, self.first)
+            self._length += 1
+            if not self.first.next:
+                self.last = self.first
+
         elif index == self._length:
             self.append(value)
+
         else:
             pointer = self._get_node(index - 1)
             pointer.next = Node(value, pointer.next)
-        self._length += 1
+            self._length += 1
 
     def remove(self, value):
         if not self.first:
@@ -58,6 +63,7 @@ class LinkedList:
             self.first = self.first.next
             if not self.first:
                 self.last = self.first
+            return
         
         pointer = self.first
         while pointer.next:
@@ -81,7 +87,8 @@ class LinkedList:
             string_list += str(pointer.value)
             pointer = pointer.next
             if pointer:
-                string_list += ","
+                string_list += ", "
 
         string_list += "]"
         return string_list
+
