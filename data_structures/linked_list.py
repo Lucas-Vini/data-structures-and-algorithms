@@ -53,8 +53,18 @@ class LinkedList:
     def remove(self, value):
         if not self.first:
             raise ValueError(f"{value} is not in list")
+        
         if self.first.value == value:
             self.first = self.first.next
+            if not self.first:
+                self.last = self.first
+        
+        pointer = self.first
+        while pointer.next:
+            if pointer.next.value == value:
+                pointer.next = pointer.next.next
+                if not pointer.next:
+                    self.last = pointer.next
             
 
 
