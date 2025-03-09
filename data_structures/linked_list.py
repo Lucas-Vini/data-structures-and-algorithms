@@ -43,7 +43,7 @@ class LinkedList:
     def insert(self, index: int, value):
         if index == 0:
            self.first = Node(value, self.first)
-        elif index == self._length - 1:
+        elif index == self._length:
             self.append(value)
         else:
             pointer = self._get_node(index - 1)
@@ -65,8 +65,6 @@ class LinkedList:
                 pointer.next = pointer.next.next
                 if not pointer.next:
                     self.last = pointer.next
-            
-
 
     def _get_node(self, index: int):
         pointer = self.first
@@ -75,3 +73,37 @@ class LinkedList:
                 raise IndexError("list index out of range")
             pointer = pointer.next
         return pointer
+
+    def __repr__(self):
+        string_list = "["
+        pointer = self.first
+        for i in range(len(self)):
+            string_list += str(pointer.value)
+            pointer = pointer.next
+            if pointer:
+                string_list += ","
+
+        string_list += "]"
+        return string_list
+
+
+
+ele = LinkedList()
+print(ele, len(ele))
+ele.append(1)
+print(ele, len(ele))
+ele.append(11)
+print(ele, len(ele))
+print(ele[1], ele[0])
+ele[0] = 22
+print(ele, len(ele))
+print(ele[1], ele[0])
+print(ele)
+print(ele.index(11))
+print(ele.index(22))
+ele.insert(0, 33)
+print(ele, len(ele))
+ele.insert(2, 9)
+print(ele, len(ele))
+ele.insert(4, 4)
+print(ele, len(ele))
