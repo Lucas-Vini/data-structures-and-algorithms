@@ -63,14 +63,19 @@ class LinkedList:
             self.first = self.first.next
             if not self.first:
                 self.last = self.first
+            self._length -= 1
             return
         
         pointer = self.first
         while pointer.next:
             if pointer.next.value == value:
                 pointer.next = pointer.next.next
+                self._length -= 1
                 if not pointer.next:
                     self.last = pointer.next
+                return
+            pointer = pointer.next
+        raise ValueError(f"{value} is not in list")
 
     def _get_node(self, index: int):
         pointer = self.first
