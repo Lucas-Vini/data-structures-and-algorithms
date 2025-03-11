@@ -72,7 +72,7 @@ class LinkedList:
                 pointer.next = pointer.next.next
                 self._length -= 1
                 if not pointer.next:
-                    self.last = pointer.next
+                    self.last = pointer
                 return
             pointer = pointer.next
         raise ValueError(f"{value} is not in list")
@@ -97,3 +97,42 @@ class LinkedList:
         string_list += "]"
         return string_list
 
+
+lista = LinkedList()
+print(lista, len(lista))
+lista.insert(0, 6)
+print(lista, len(lista))
+lista.append(4)
+print(lista, len(lista))
+lista.insert(0, 3)
+print(lista, len(lista))
+lista.append(8)
+print(lista, len(lista))
+lista.insert(3, 2)
+print(lista, len(lista))
+lista.append(1)
+print(lista, len(lista))
+lista.insert(6, 5)
+print(lista, len(lista))
+lista.append(1)
+print(lista, len(lista))
+lista.insert(6, 5)
+print(lista, len(lista))
+lista.append(8)
+print(lista, len(lista))
+lista.remove(3)
+print(lista, len(lista))
+lista.append(99)
+print(lista, len(lista))
+lista.remove(1)
+print(lista, len(lista))
+lista.append(100)
+print(lista, len(lista))
+lista.remove(99)
+print(lista, len(lista))
+lista.append(88)
+print(lista, len(lista))
+lista.remove(88)
+print(lista, len(lista))
+lista.append(89)
+print(lista, len(lista))
