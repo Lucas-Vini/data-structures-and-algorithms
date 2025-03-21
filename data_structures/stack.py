@@ -20,3 +20,15 @@ class Stack:
         string_list += "]"
         return string_list
     
+    def push(self, value):
+        self.top = Node(value, self.top)
+        self._length += 1
+
+pilha = Stack()
+print(pilha)
+pilha.push(2)
+print(pilha)
+pilha.push(9)
+print(pilha)
+pilha.push(3)
+print(pilha)
