@@ -20,3 +20,12 @@ class Queue:
 
         string_list += "]"
         return string_list
+    
+    def enqueue(self, value):
+        if self._length == 0:
+            self.tail = Node(value)
+            self.head = self.tail
+        else:
+            self.tail.next = Node(value)
+            self.tail = self.tail.next
+        self._length += 1
