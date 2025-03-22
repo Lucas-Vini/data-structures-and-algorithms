@@ -24,11 +24,10 @@ class Stack:
         self.top = Node(value, self.top)
         self._length += 1
 
-pilha = Stack()
-print(pilha)
-pilha.push(2)
-print(pilha)
-pilha.push(9)
-print(pilha)
-pilha.push(3)
-print(pilha)
+    def pop(self):
+        if self._length > 0:
+            top_value = self.top.value
+            self.top = self.top.next
+            self._length -= 1
+            return top_value
+        raise IndexError("empty stack")
