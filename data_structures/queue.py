@@ -42,3 +42,8 @@ class Queue:
 
         self._length -= 1
         return head_value
+
+    def next(self):
+        if not self.head:
+            raise IndexError("empty stack")
+        return self.head.value
