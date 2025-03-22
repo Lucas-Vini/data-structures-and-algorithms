@@ -29,3 +29,16 @@ class Queue:
             self.tail.next = Node(value)
             self.tail = self.tail.next
         self._length += 1
+
+    def dequeue(self):
+        if not self.head:
+            raise IndexError("empty stack")
+    
+        head_value = self.head.value
+        self.head = self.head.next
+
+        if not self.head:
+            self.tail = self.head
+
+        self._length -= 1
+        return head_value
