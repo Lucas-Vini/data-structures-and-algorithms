@@ -31,3 +31,8 @@ class Stack:
             self._length -= 1
             return top_value
         raise IndexError("empty stack")
+
+    def peek(self):
+        if self._length > 0:
+            return self.top.value
+        raise IndexError("empty stack")
