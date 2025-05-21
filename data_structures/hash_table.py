@@ -22,10 +22,3 @@ class HashTable:
         for k, v in self.table[index]:
             if key == k:
                 return v
-
-df = HashTable(3)
-df.set("casa", "carro")
-df.set("agua", "fogo")
-print(df.get("agua"))
-print(df.get("casa"))
-print(df.get("ca"))
