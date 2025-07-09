@@ -11,39 +11,50 @@ class BinaryTree:
             root_node = TreeNode(value)
             self.root = root_node
 
-    def simetric_traversal(self, node=None):
+    def inorder_traversal(self, node=None):
         if node is None:
-            node=self.root
+            node = self.root
         
         if node.left:
             print('(', end='')
-            self.simetric_traversal(node.left)
+            self.inorder_traversal(node.left)
         print(node.value, end='')
         if node.right:
-            self.simetric_traversal(node.right)
+            self.inorder_traversal(node.right)
             print(')', end='')
 
+    def postorder_traversal(self, node=None):
+        if node is None:
+            node = self.root
+        
+        if node.left:
+            self.postorder_traversal(node.left)
+        if node.right:
+            self.postorder_traversal(node.right)
+        print(node.value)
 
 my_tree = BinaryTree()
 
-n1 = TreeNode('a')
-n2 = TreeNode('+')
-n3 = TreeNode('*')
-n4 = TreeNode('b')
-n5 = TreeNode('-')
-n6 = TreeNode('/')
-n7 = TreeNode('c')
-n8 = TreeNode('d')
-n9 = TreeNode('e')
+n1 = TreeNode('1')
+n2 = TreeNode('N')
+n3 = TreeNode('5')
+n4 = TreeNode('C')
+n5 = TreeNode('R')
+n6 = TreeNode('3')
+n7 = TreeNode('V')
+n8 = TreeNode('4')
+n9 = TreeNode('5')
+n0 = TreeNode('3')
 
-n6.left = n7
-n6.right = n8
-n5.left = n6
-n5.right = n9
-n3.left = n4
-n3.right = n5
-n2.left = n1
-n2.right = n3
-my_tree.root = n2
+n0.left = n6
+n0.right = n9
+n6.left = n1
+n6.right = n5
+n5.left = n2
+n5.right = n4
+n4.right = n3
+n9.left = n8
+n8.right = n7
+my_tree.root = n0
 
-my_tree.simetric_traversal()
+my_tree.postorder_traversal()
