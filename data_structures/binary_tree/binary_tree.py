@@ -33,6 +33,24 @@ class BinaryTree:
             self.postorder_traversal(node.right)
         print(node.value)
 
+    def height(self, node=None):
+        left_height = 0
+        right_height = 0
+
+        if node is None:
+            node = self.root
+
+        if node.left:
+            left_height = self.height(node.left)
+        if node.right:
+            right_height = self.height(node.right)
+
+        return max(left_height, right_height) + 1
+
+        
+        
+
+
 my_tree = BinaryTree()
 
 n1 = TreeNode('1')
@@ -57,4 +75,4 @@ n9.left = n8
 n8.right = n7
 my_tree.root = n0
 
-my_tree.postorder_traversal()
+print(my_tree.height())
