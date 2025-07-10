@@ -5,9 +5,11 @@ class TreeNode:
         self.right = None
 
 class BinaryTree:
-    def __init__(self, value=None):
+    def __init__(self, value=None, node=None):
         self.root = None
-        if value:
+        if node:
+            self.root = node
+        elif value:
             root_node = TreeNode(value)
             self.root = root_node
 

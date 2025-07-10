@@ -20,3 +20,18 @@ class BinarySearchTree(BinaryTree):
             parent_node.left = TreeNode(value)
         else:
             parent_node.right = TreeNode(value)
+
+    def search(self, value):
+        return self._search(value, node=self.root)
+    
+    def _search(self, value, node):
+        if node.value == value:
+            return BinarySearchTree(node=node)
+        
+        if node is None:
+            return None
+        
+        if value < node.value:
+            return self._search(value, node.left)
+        return self._search(value, node.right)
+
