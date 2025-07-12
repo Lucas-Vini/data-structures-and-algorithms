@@ -35,3 +35,12 @@ class BinarySearchTree(BinaryTree):
             return self._search(value, node.left)
         return self._search(value, node.right)
 
+    def min(self, node=None):
+        if node is None:
+            node = self.root
+
+        while node.left:
+            node = node.left
+
+        return node
+
