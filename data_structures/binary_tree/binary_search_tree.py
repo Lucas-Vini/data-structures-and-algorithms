@@ -42,7 +42,9 @@ class BinarySearchTree(BinaryTree):
         while node.left:
             node = node.left
 
-        return node
+        if node.value:
+            return node.value
+        return raise IndexError("empty binary search tree")
     
     def max(self, node=None):
         if node is None:
@@ -51,5 +53,7 @@ class BinarySearchTree(BinaryTree):
         while node.right:
             node = node.right
 
-        return node
+        if node.value:
+            return node.value
+        return raise IndexError("empty binary search tree")
 
