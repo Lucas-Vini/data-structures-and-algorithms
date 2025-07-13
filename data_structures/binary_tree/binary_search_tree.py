@@ -55,5 +55,5 @@ class BinarySearchTree(BinaryTree):
 
         if node.value:
             return node.value
-        return raise IndexError("empty binary search tree")
+        raise IndexError("empty binary search tree")
 
