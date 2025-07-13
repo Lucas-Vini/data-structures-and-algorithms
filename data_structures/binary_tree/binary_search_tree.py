@@ -43,4 +43,13 @@ class BinarySearchTree(BinaryTree):
             node = node.left
 
         return node
+    
+    def max(self, node=None):
+        if node is None:
+            node = self.root
+
+        while node.right:
+            node = node.right
+
+        return node
 
