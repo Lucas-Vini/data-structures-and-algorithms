@@ -20,19 +20,19 @@ class BinaryTree:
             node = self.root
         
         if node.left:
-            self.inorder_traversal(node.left)
+            self.in_order_traversal(node.left)
         print(node.value, end=' ')
         if node.right:
-            self.inorder_traversal(node.right)
+            self.in_order_traversal(node.right)
 
     def post_order_traversal(self, node=None):
         if node is None:
             node = self.root
         
         if node.left:
-            self.postorder_traversal(node.left)
+            self.post_order_traversal(node.left)
         if node.right:
-            self.postorder_traversal(node.right)
+            self.post_order_traversal(node.right)
         print(node.value)
 
     def height(self, node=None):

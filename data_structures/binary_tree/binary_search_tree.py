@@ -44,7 +44,7 @@ class BinarySearchTree(BinaryTree):
 
         if node.value:
             return node.value
-        return raise IndexError("empty binary search tree")
+        raise IndexError("empty binary search tree")
     
     def max(self, node=None):
         if node is None:
@@ -56,4 +56,23 @@ class BinarySearchTree(BinaryTree):
         if node.value:
             return node.value
         raise IndexError("empty binary search tree")
+
+    def remove(self, value, node=None):
+        if node is None:
+            node = self.root
+
+        if value > node.value:
+            node.right = self.remove(value, node=node.right)
+        elif value < node.value:
+            node.left = self.remove(value, node=node.left)
+        else:
+            if node.left is None:
+                return node.right
+            if node.right is None:
+                return node.left
+            
+            substitute = self.min(node.right)
+            node.value = substitute
+            node.right = self.remove(substitute, node=node.right)
+        return node
 
